@@ -1,0 +1,8 @@
+1.在根目录下安装json-server:npm install json-server
+2.npm init初始化
+3.在项目文件家里安装json-server:npm install json-server --save
+4.在package json配置json-server运行方式，和运行文件db.json
+"scripts": {
+"json:server": "json-server --watch db.json"
+},
+5.运行：npm run json:server

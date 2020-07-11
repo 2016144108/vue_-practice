@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "name": "geyang",
+      "phone": "18702123202",
+      "email": "2863279332@qq.com",
+      "id": 1,
+      "age": 23,
+      "companyId": 1
+    },
+    {
+      "name": "linfei",
+      "phone": "15445621238",
+      "email": "1254875442@qq.com",
+      "id": 2,
+      "age": 24,
+      "companyId": 1
+    },
+    {
+      "name": "gougou",
+      "phone": "13554256579",
+      "email": "2526463125@qq.com",
+      "id": 3,
+      "age": 25,
+      "companyId": 2
+    },
+    {
+      "name": "anna",
+      "phone": "13552645875",
+      "email": "2653245112@qq.com",
+      "id": 4,
+      "age": 26,
+      "companyId": 2
+    },
+    {
+      "name": "zhangyu",
+      "phone": "14558657542",
+      "email": "3254545888@qq.com",
+      "id": 5,
+      "age": 27,
+      "companyId": 1
+    }
+  ],
+  "companys": [
+    {
+      "name": "windows",
+      "id": 1,
+      "description": "windows is good"
+    },
+    {
+      "name": "mac",
+      "id": 2,
+      "description": "mac is good"
+    },
+    {
+      "name": "linux",
+      "id": 3,
+      "description": "linux is good"
+    }
+  ]
+}
