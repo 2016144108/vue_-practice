@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "json:server": "json-server --watch db.json"
+    "json:server": "json-server --watch db.json",
+    "json:server:remote": "json-server http://jsonplaceholder.typicode.com/db"
   },
   "dependencies": {
     "core-js": "^3.6.5",

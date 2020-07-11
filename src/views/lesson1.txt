@@ -6,3 +6,5 @@
 "json:server": "json-server --watch db.json"
 },
 5.运行：npm run json:server
+
+get请求
