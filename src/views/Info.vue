@@ -9,20 +9,24 @@
             <thead>
             <tr>
                 <th>姓名</th>
-                <th>年龄</th>
-                <th>公司</th>
+                <th>毕业院校</th>
+                <th>学位</th>
+                <th>职位</th>
                 <th>手机号</th>
                 <th>邮箱</th>
+                <th>简介</th>
                 <th>操作</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="item in users">
                 <th>{{item.name}}</th>
-                <th>{{item.age}}</th>
-                <th>{{item.companyId}}</th>
+                <th>{{item.school}}</th>
+                <th>{{item.education}}</th>
+                <th>{{item.job}}</th>
                 <th>{{item.phone}}</th>
                 <th>{{item.email}}</th>
+                <th>{{item.intro}}</th>
                 <th>{{item.id}}</th>
             </tr>
             </tbody>
