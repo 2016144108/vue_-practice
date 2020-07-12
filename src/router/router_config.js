@@ -2,9 +2,14 @@ const router_config={
     mode: "history",
     routes: [
         {
-            /*path: "/",
-            name: "index",
-            component: ()=>import("../views/Index"),*/
+            path: "/",
+            name: "info",
+            component: ()=>import("../views/Info"),
+        },
+        {
+            path: "/About",
+            name: "about",
+            component: ()=>import("../views/About"),
         },
     ]
 }

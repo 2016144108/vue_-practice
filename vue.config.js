@@ -1,4 +1,4 @@
-const vueConfig = {
+/*const vueConfig = {
   devServer: {
     proxy: {
       '/api': {
@@ -8,4 +8,4 @@ const vueConfig = {
   },
 };
 
-module.exports = vueConfig
+module.exports = vueConfig*/
