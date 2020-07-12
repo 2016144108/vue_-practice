@@ -16,6 +16,11 @@ const router_config={
             name: "add",
             component: ()=>import("../views/Add"),
         },
+        {
+            path: "/Detail",
+            name: "detail",
+            component: ()=>import("../views/Detail"),
+        },
     ]
 }
 

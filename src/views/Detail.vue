@@ -1,7 +1,7 @@
 <template>
-    <div class="add_item">
-        <h1>添加用户</h1>
-        <form class="layui-form" action="" @submit.prevent="addUser">
+    <div class="detail_item">
+        <h1>编辑用户</h1>
+        <form class="layui-form" action="" @submit.prevent="detailUser">
             <div class="layui-form-item">
                 <label class="layui-form-label">姓名</label>
                 <div class="layui-input-block">
@@ -58,7 +58,7 @@
     import '../static/layui/layui'
 
     export default {
-        name: "Add",
+        name: "Detail",
         data(){
             return{
                 user: {
@@ -72,19 +72,16 @@
                 }
             }
         },
+        async created(){
+            let id = this.$route.query.id;
+            this.user =await this.edit(id);
+            console.log(this.user);
+        },
         methods: {
-            async addUser(){
-                let newUser = this.user;
-                console.log(this.user);
-                const resp = await this.$http.post("http://localhost:3000/users", newUser);
-                console.log(resp);
-                if(resp.status === 201){
-                    alert("添加成功");
-                    this.$router.push({name:'info', query: {msg:'新用户添加成功'}});
-                }else{
-                    alert("添加失败");
-                    this.$router.push({name:'info', query: {msg:'新用户添加失败'}});
-                }
+            async edit(id){
+                const resp = await this.$http.get('http://localhost:3000/users/'+id);
+                console.log(resp.body);
+                return resp.body;
             },
         }
     }
@@ -97,29 +94,29 @@
         padding: 0;
         list-style: none;
     }
-    .add_item{
+    .detail_item{
         width: 1300px;
         margin: 0 auto;
     }
-    .add_item h1{
+    .detail_item h1{
         margin-left: 30px;
         margin-top: 30px;
         margin-bottom: 30px;
     }
-    .add_item .layui-form-item{
+    .detail_item .layui-form-item{
         margin-bottom: 20px;
     }
-    .add_item .layui-form-item .layui-input-block .layui-input{
+    .detail_item .layui-form-item .layui-input-block .layui-input{
         height: 36px;
         padding-left: 20px;
         font-size: 13px;
     }
-    .add_item .layui-form-item .layui-form-label{
+    .detail_item .layui-form-item .layui-form-label{
         height: 36px;
         line-height: 36px;
         margin-right: 20px;
     }
-    .add_item textarea{
+    .detail_item textarea{
         resize: none;
         padding: 10px 20px;
         font-size: 13px;
