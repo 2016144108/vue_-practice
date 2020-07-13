@@ -28,7 +28,10 @@
                 <th>{{item.phone}}</th>
                 <th>{{item.email}}</th>
                 <th>{{item.intro}}</th>
-                <th><span  @click="edit(item.id)" class="layui-icon layui-icon-edit icon"></span></th>
+                <th>
+                    <span  @click="edit(item.id)" class="layui-icon layui-icon-edit icon"></span>
+                    <span  @click="deleteUser(item.id)" class="layui-icon layui-icon-delete icon_1"></span>
+                </th>
             </tr>
             </tbody>
         </table>
@@ -69,6 +72,22 @@
             async edit(id){
                 this.$router.push({name:'detail', query:{id:id}});
             },
+            async deleteUser(id){
+                const resp = await this.$http.delete("http://localhost:3000/users/"+id);
+                console.log(resp);
+                if(resp.status === 200){
+                    alert("删除成功");
+                    this.$router.push({name:'info', query: {msg:'用户信息删除成功'}});
+                }else{
+                    alert("删除失败");
+                    this.$router.push({name:'info', query: {msg:'用户信息删除失败'}});
+                }
+            },
+        },
+        watch: {
+            '$route' (to, from) {
+                this.$router.go(0);
+            }
         },
     }
 </script>
@@ -89,10 +108,22 @@
         line-height: 20px;
         text-align: center;
         height: 20px;
-        display: block;
+        display: inline;
         border-radius: 3px;
         cursor: pointer;
         background-color: #1E9FFF;
+        color: white;
+        margin-right: 10px;
+    }
+    .info_item .icon_1{
+        width: 20px;
+        line-height: 20px;
+        text-align: center;
+        height: 20px;
+        display: inline;
+        border-radius: 3px;
+        cursor: pointer;
+        background-color: mediumseagreen;
         color: white;
     }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="detail_item">
         <h1>编辑用户</h1>
-        <form class="layui-form" action="" @submit.prevent="detailUser">
+        <form class="layui-form" action="" @submit.prevent="editUser">
             <div class="layui-form-item">
                 <label class="layui-form-label">姓名</label>
                 <div class="layui-input-block">
@@ -83,6 +83,17 @@
                 console.log(resp.body);
                 return resp.body;
             },
+            async editUser(){
+                const resp = await this.$http.patch('http://localhost:3000/users/'+this.user.id,this.user);
+                console.log(resp);
+                if(resp.status === 200){
+                    alert("编辑成功");
+                    this.$router.push({name:'info', query: {msg:'用户信息编辑成功'}});
+                }else{
+                    alert("编辑失败");
+                    this.$router.push({name:'info', query: {msg:'用户信息编辑失败'}});
+                }
+            }
         }
     }
 </script>
