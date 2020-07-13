@@ -1,6 +1,10 @@
 <template>
     <div class="info_item">
         <Alert :msg="msg" @goNull="handleunset"/>
+        <h1>用户信息</h1>
+        <div class="layui-input-block">
+            <input style="width: 100%; padding-left: 30px;margin-bottom: 20px" v-model="inputName" type="text" placeholder="输入用户名信息" autocomplete="on" class="layui-input"/>
+        </div>
         <table class="layui-table">
             <colgroup>
                 <col width="150">
@@ -20,7 +24,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="item in users">
+            <tr v-for="item in filterUser(users , inputName)" :key="item.id">
                 <th>{{item.name}}</th>
                 <th>{{item.school}}</th>
                 <th>{{item.education}}</th>
@@ -55,6 +59,7 @@
             return{
                 users: [],
                 msg: '',
+                inputName: '',
             };
         },
         components: {
@@ -83,6 +88,9 @@
                     this.$router.push({name:'info', query: {msg:'用户信息删除失败'}});
                 }
             },
+            filterUser(Users, inputValue){
+                return Users.filter(user => user.name.match(inputValue))
+            }
         },
         watch: {
             '$route' (to, from) {
@@ -102,6 +110,11 @@
     .info_item{
         width: 1300px;
         margin:20px auto 0;
+    }
+    .info_item h1{
+        margin-left: 30px;
+        margin-top: 30px;
+        margin-bottom: 10px;
     }
     .info_item .icon{
         width: 20px;
